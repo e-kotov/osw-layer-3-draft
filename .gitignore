@@ -54,3 +54,5 @@ rsconnect/
 .ipython
 .jupyter
 .local
+
+data

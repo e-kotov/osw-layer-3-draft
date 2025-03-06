@@ -1,0 +1,4 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+.Random.seed|object|8c3c8301c8579259
+get_osf_data|function|4b25e8a003df1e4f
+main_dataset|stem|950379eabac9922b|447de327d7975986|bc919dd52b38a8c5|-1890219917||t20150.4974107531s|s2810963b|2810963|qs|local|vector|||5.226||
