@@ -17,10 +17,11 @@ COPY --chown=rstudio:rstudio ../renv/settings.json renv/settings.json
 
 
 # install packages in the default R package library of the container
-RUN R -e "renv::restore(library = '/usr/local/lib/R/site-library')"
+# RUN R -e "renv::restore(library = '/usr/local/lib/R/site-library')"
+RUN R -e "renv::restore(library = '/usr/local/lib/R/site-library', repos = 'https://packagemanager.posit.co/cran/2025-02-28')"
 
 # remove the temporary project folder
-RUN chmod -R u+w project && rm -rf /home/rstudio/project
+RUN chmod -R u+w /home/rstudio/project && rm -rf /home/rstudio/project
 
 EXPOSE 8888
 

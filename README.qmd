@@ -1,11 +1,15 @@
-# Instructions
+---
+title: "Instructions"
+eval: false
+format: gfm
+---
 
+## Run this repository in a web browser using Binder. Push the button >> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e-kotov/osw-layer-3-draft/HEAD?urlpath=rstudio)
 
-## Run this repository in a web browser using Binder. Push the button \>\> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e-kotov/osw-layer-3-draft/HEAD?urlpath=rstudio)
 
 # Initial sequence of actions before building the Docker image
 
-``` r
+```{r}
 # check the current repos, it will probably be default CRAN or cran.rstudio.com
 getOption("repos")
 # change the repos to Posit Package Manager
@@ -60,26 +64,27 @@ renv::status()
 
 # Prepare the Docker image
 
-## Build the Docker image locally
+##  Build the Docker image locally
 
-``` bash
+
+```bash
 docker build --platform linux/amd64 -f Dockerfile4build/Dockerfile -t r442 .
 ```
 
 ## Test run the Docker image locally
 
-``` bash
+```bash
 docker run --platform linux/amd64 -it --rm -v "$(pwd):/home/rstudio" -p 8888:8888 r442
 ```
 
 ## Tag the Docker image before pushing it to the container registry
 
-``` bash
+```bash
 docker tag r442 ghcr.io/e-kotov/osw-layer-3-draft:latest
 ```
 
 ## Push the image to the container registry
 
-``` bash
+```bash
 docker push ghcr.io/e-kotov/osw-layer-3-draft:latest
 ```
