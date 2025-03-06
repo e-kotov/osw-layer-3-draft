@@ -27,9 +27,11 @@ getOption("repos")
 renv::settings$ppm.enabled(value = TRUE)
 renv::settings$snapshot.type(value = "all")
 
-# install targets and visNetwork (for visualisation of the workflows)
-# also styler for linting the code
-renv::install("targets", "visNetwork", "styler", prompt = FALSE)
+# install targets
+# visNetwork (for visualisation of the workflows)
+# qs2 (for targets snapshots)
+# also styler (for linting the code)
+renv::install("targets", "visNetwork", "qs2", "styler", prompt = FALSE)
 
 # activate targets
 targets::use_targets()
@@ -37,7 +39,7 @@ targets::use_targets()
 # WRITE A TARGETS PIPELINE
 
 # install some packages that will be used in the project by the analysis scripts
-renv::install(c("osfr", "tidyverse", "qs2", "fs"), prompt = FALSE)
+renv::install(c("osfr", "tidyverse", "fs"), prompt = FALSE)
 
 # try visualising the targets workflow
 targets::tar_visnetwork()
@@ -82,4 +84,10 @@ docker tag r442 ghcr.io/e-kotov/osw-layer-3-draft:latest
 
 ``` bash
 docker push ghcr.io/e-kotov/osw-layer-3-draft:latest
+```
+
+## Save the Docker image to a file
+
+``` bash
+docker save -o myimage.tar r442
 ```
