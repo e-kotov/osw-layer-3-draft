@@ -74,6 +74,12 @@ docker build --platform linux/amd64 -f Dockerfile4build/Dockerfile -t r442 .
 docker run --platform linux/amd64 -it --rm -v "$(pwd):/home/rstudio" -p 8888:8888 r442
 ```
 
+Also test run without binding the local folder:
+
+``` bash
+docker run --platform linux/amd64 -it --rm -p 8888:8888 r442
+```
+
 ## Tag the Docker image before pushing it to the container registry
 
 ``` bash
