@@ -22,5 +22,12 @@ list(
     command = get_osf_data(
       tmp_dir = "data/tmp"
     )
-  )
+  ),
+
+  tar_target(
+    name = main_data_summary,
+    command = summary(main_dataset)
+  ),
+
+  tar_target()
 )
