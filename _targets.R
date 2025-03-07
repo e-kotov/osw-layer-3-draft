@@ -27,7 +27,5 @@ list(
   tar_target(
     name = main_data_summary,
     command = summary(main_dataset)
-  ),
-
-  tar_target()
+  )
 )
